@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="DatePicker" prefHeight="441.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="AppointmentTable" layoutX="28.0" layoutY="112.0" prefHeight="272.0" prefWidth="729.0">
+        <columns>
+            <TableColumn prefWidth="55.0" text="Appt ID">
+               <cellValueFactory>
+                  <PropertyValueFactory property="appointmentId" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="76.0" text="Title">
+               <cellValueFactory>
+                  <PropertyValueFactory property="title" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="94.0" text="Description">
+               <cellValueFactory>
+                  <PropertyValueFactory property="description" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="Location">
+               <cellValueFactory>
+                  <PropertyValueFactory property="location" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="Contact">
+               <cellValueFactory>
+                  <PropertyValueFactory property="contact" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="Type">
+               <cellValueFactory>
+                  <PropertyValueFactory property="type" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="102.0" text="Start">
+               <cellValueFactory>
+                  <PropertyValueFactory property="start" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="100.0" text="End">
+               <cellValueFactory>
+                  <PropertyValueFactory property="end" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="76.0" text="Customer ID">
+               <cellValueFactory>
+                  <PropertyValueFactory property="customerId" />
+               </cellValueFactory>
+            </TableColumn>
+        </columns>
+      </TableView>
+      <BorderPane layoutX="255.0" layoutY="14.0" style="-fx-border-color: black; -fx-border-radius: 90;">
+         <top>
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="388.0" text="Appointment System Main Menu" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </top>
+      </BorderPane>
+      <HBox layoutX="340.0" layoutY="78.0" prefHeight="20.0" prefWidth="348.0" spacing="70.0">
+         <children>
+            <RadioButton fx:id="RadioViewAll" mnemonicParsing="false" selected="true" text="View All">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="ViewToggle" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="RadioViewMonth" mnemonicParsing="false" text="Month" toggleGroup="$ViewToggle">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="RadioViewWeek" mnemonicParsing="false" text="Week" toggleGroup="$ViewToggle">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </RadioButton>
+         </children>
+      </HBox>
+      <Label layoutX="28.0" layoutY="70.0" prefHeight="35.0" prefWidth="265.0" text="Appointment Schedule">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="765.0" layoutY="112.0" mnemonicParsing="false" onMouseClicked="#CustomerRecordClick" prefHeight="37.0" prefWidth="121.0" text="Customer Records">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="765.0" layoutY="166.0" mnemonicParsing="false" onMouseClicked="#ContactScheduleClick" prefHeight="37.0" prefWidth="121.0" text="Contact Schedule">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="766.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#LogOutClick" prefHeight="37.0" prefWidth="121.0" style="-fx-border-color: red;" text="Log Out">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <HBox layoutX="90.0" layoutY="390.0" prefHeight="37.0" prefWidth="633.0" spacing="100.0">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#AddClick" prefHeight="37.0" prefWidth="144.0" text="Add Appointment">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#ModifyClick" prefHeight="37.0" prefWidth="144.0" text="Modify Appointment">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#DeleteClick" prefHeight="37.0" prefWidth="144.0" text="Delete Appointment">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <Button layoutX="765.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#ReportTypeClick" prefHeight="37.0" prefWidth="121.0" text="By Type" wrapText="true" />
+      <Button layoutX="765.0" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#ReportCustomerClick" prefHeight="37.0" prefWidth="121.0" text="By Customer ID" />
+      <Label alignment="CENTER" layoutX="761.0" layoutY="234.0" prefHeight="19.0" prefWidth="130.0" style="-fx-border-color: black;" text="Appointment Reports">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button layoutX="765.0" layoutY="347.0" mnemonicParsing="false" onMouseClicked="#ReportLocationClick" prefHeight="37.0" prefWidth="121.0" text="By Location" />
+   </children>
+</AnchorPane>
